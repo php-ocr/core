@@ -1,0 +1,15 @@
+on:
+    - push
+    - pull_request
+    - release
+
+jobs:
+
+    analyze:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: composer install
+            - run: pipelines/analyze/phpstan
+            - run: pipelines/analyze/psalm
+            - run: pipelines/analyze/phan

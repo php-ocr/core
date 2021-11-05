@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset name="OCR">
+    <rule ref="PSR12"/>
+    <rule ref="Squiz.PHP.CommentedOutCode"/>
+    <rule ref="Squiz.PHP.NonExecutableCode"/>
+    <rule ref="SlevomatCodingStandard.Variables.UnusedVariable"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property
+                name="spacesCountAroundEqualsSign"
+                type="integer"
+                value="0"
+            />
+        </properties>
+    </rule>
+</ruleset>

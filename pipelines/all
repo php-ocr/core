@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+pipelines/analyze/phpstan
+pipelines/analyze/psalm
+pipelines/analyze/phan
+pipelines/lint/code-sniffer
+pipelines/lint/code-style-fixer
+pipelines/lint/copy-paste-detector
+pipelines/test/phpunit

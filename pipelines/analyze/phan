@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+vendor/bin/phan --config-file=pipelines/analyze/phan.php --allow-polyfill-parser --analyze-twice
