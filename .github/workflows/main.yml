@@ -13,3 +13,19 @@ jobs:
             - run: pipelines/analyze/phpstan
             - run: pipelines/analyze/psalm
             - run: pipelines/analyze/phan
+
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: composer install
+            - run: pipelines/lint/code-sniffer
+            - run: pipelines/lint/code-style-fixer
+            - run: pipelines/lint/copy-paste-detector
+
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: composer install
+            - run: pipelines/test/phpunit
