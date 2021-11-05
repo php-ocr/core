@@ -4,37 +4,57 @@ on:
     - release
 
 jobs:
-
     analyze:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+        env:
+            PHP_VERSION: ${{ matrix.php }}
         steps:
             -
                 uses: actions/checkout@v2
                 with:
                     submodules: recursive
-            - run: composer install
-            - run: pipelines/analyze/phpstan
-            - run: pipelines/analyze/psalm
-            - run: pipelines/analyze/phan
+            - run: docker run --volume=${PWD}:/app composer install
+            - run: docker-compose run application pipelines/analyze/phpstan
+            - run: docker-compose run application pipelines/analyze/psalm
+            - run: docker-compose run application pipelines/analyze/phan
 
     lint:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+        env:
+            PHP_VERSION: ${{ matrix.php }}
         steps:
             -
                 uses: actions/checkout@v2
                 with:
                     submodules: recursive
-            - run: composer install
-            - run: pipelines/lint/code-sniffer
-            - run: pipelines/lint/code-style-fixer
-            - run: pipelines/lint/copy-paste-detector
+            - run: docker run --volume=${PWD}:/app composer install
+            - run: docker-compose run application pipelines/lint/code-sniffer
+            - run: docker-compose run application pipelines/lint/code-style-fixer
+            - run: docker-compose run application pipelines/lint/copy-paste-detector
 
     test:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+        env:
+            PHP_VERSION: ${{ matrix.php }}
         steps:
             -
                 uses: actions/checkout@v2
                 with:
                     submodules: recursive
-            - run: composer install
-            - run: pipelines/test/phpunit
+            - run: docker run --volume=${PWD}:/app composer install
+            - run: docker-compose run application pipelines/test/phpunit
