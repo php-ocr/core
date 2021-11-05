@@ -6,9 +6,9 @@ namespace OCR\Test\Core\Language;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use OCR\Core\Exception\ExceptionInterface;
-use OCR\Core\Language\AbstractLanguageFactory;
-use OCR\Core\Language\LanguageFactoryInterface;
+use OCR\Exception\ExceptionInterface;
+use OCR\Language\AbstractLanguageFactory;
+use OCR\Language\LanguageFactoryInterface;
 use PHPUnit\Framework\TestCase;
 
 class AbstractLanguageFactoryTest extends TestCase

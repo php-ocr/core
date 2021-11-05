@@ -6,9 +6,9 @@ namespace OCR\Test\Core\Engine;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use OCR\Core\Engine\AbstractEngine;
-use OCR\Core\Engine\EngineInterface;
-use OCR\Core\Language\LanguageInterface;
+use OCR\Engine\AbstractEngine;
+use OCR\Engine\EngineInterface;
+use OCR\Language\LanguageInterface;
 use PHPUnit\Framework\TestCase;
 
 class AbstractEngineTest extends TestCase

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace OCR\Core\Engine;
+namespace OCR\Engine;
 
-use OCR\Core\Language\LanguageInterface;
+use OCR\Language\LanguageInterface;
 use SplFileInfo;
 
 interface EngineInterface

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace OCR\Test\Core\Exception;
 
 use Exception as BaseException;
-use OCR\Core\Exception\Exception;
-use OCR\Core\Exception\ExceptionInterface;
+use OCR\Exception\Exception;
+use OCR\Exception\ExceptionInterface;
 use PHPUnit\Framework\TestCase;
 
 class ExceptionTest extends TestCase

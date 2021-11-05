@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace OCR\Test\Core\Language;
 
-use OCR\Core\Language\Language;
-use OCR\Core\Language\LanguageInterface;
+use OCR\Language\Language;
+use OCR\Language\LanguageInterface;
 use PHPUnit\Framework\TestCase;
 
 class LanguageTest extends TestCase

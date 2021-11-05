@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace OCR\Core\Language;
+namespace OCR\Language;
 
-use OCR\Core\Exception\Exception;
+use OCR\Exception\Exception;
 
 abstract class AbstractLanguageFactory implements LanguageFactoryInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OCR\Core\Language;
+namespace OCR\Language;
 
 class Language implements LanguageInterface
 {

@@ -17,12 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "OCR\\Core\\": "sources/"
+            "OCR\\": "sources/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "OCR\\Test\\Core\\": "tests/"
+            "OCR\\Test\\": "tests/"
         }
     }
 }

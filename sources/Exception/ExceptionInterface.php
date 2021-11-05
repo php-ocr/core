@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OCR\Core\Exception;
+namespace OCR\Exception;
 
 use Throwable;
 
