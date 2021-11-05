@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+vendor/bin/phpcs --standard=pipelines/lint/code-sniffer.xml sources tests

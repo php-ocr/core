@@ -1,0 +1,60 @@
+on:
+    - push
+    - pull_request
+    - release
+
+jobs:
+    analyze:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+        env:
+            PHP_VERSION: ${{ matrix.php }}
+        steps:
+            -
+                uses: actions/checkout@v2
+                with:
+                    submodules: recursive
+            - run: docker run --volume=${PWD}:/app composer install
+            - run: docker-compose --file=docker/docker-compose.yml run application pipelines/analyze/phpstan
+            - run: docker-compose --file=docker/docker-compose.yml run application pipelines/analyze/psalm
+            - run: docker-compose --file=docker/docker-compose.yml run application pipelines/analyze/phan
+
+    lint:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+        env:
+            PHP_VERSION: ${{ matrix.php }}
+        steps:
+            -
+                uses: actions/checkout@v2
+                with:
+                    submodules: recursive
+            - run: docker run --volume=${PWD}:/app composer install
+            - run: docker-compose --file=docker/docker-compose.yml run application pipelines/lint/code-sniffer
+            - run: docker-compose --file=docker/docker-compose.yml run application pipelines/lint/code-style-fixer
+            - run: docker-compose --file=docker/docker-compose.yml run application pipelines/lint/copy-paste-detector
+
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+        env:
+            PHP_VERSION: ${{ matrix.php }}
+        steps:
+            -
+                uses: actions/checkout@v2
+                with:
+                    submodules: recursive
+            - run: docker run --volume=${PWD}:/app composer install
+            - run: docker-compose --file=docker/docker-compose.yml run application pipelines/test/phpunit

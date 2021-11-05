@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+vendor/bin/psalm --config=pipelines/analyze/psalm.xml

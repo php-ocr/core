@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+vendor/bin/phpstan --configuration=pipelines/analyze/phpstan.neon
