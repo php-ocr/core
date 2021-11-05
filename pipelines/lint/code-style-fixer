@@ -1,3 +1,0 @@
-#!/bin/bash -e
-
-vendor/bin/php-cs-fixer --config=pipelines/lint/code-style-fixer.php --dry-run --verbose fix

@@ -1,3 +1,0 @@
-#!/bin/bash -e
-
-vendor/bin/phpcpd --fuzzy sources tests
