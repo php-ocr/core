@@ -1,3 +1,6 @@
+[submodule "docker"]
+	path = docker
+	url = https://github.com/php-ocr/docker.git
 [submodule "pipelines"]
 	path = pipelines
 	url = https://github.com/php-ocr/pipelines.git
