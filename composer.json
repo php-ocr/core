@@ -1,6 +1,6 @@
 {
     "name": "ocr/core",
-    "description": "Optical character recognition library.",
+    "description": "Core modules and interfaces.",
     "type": "library",
     "license": "GPL-3.0-only",
     "minimum-stability": "stable",
